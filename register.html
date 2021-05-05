@@ -29,8 +29,25 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
+        
+        var messagesRef = firebase.database().ref('user');
+  
+  $('#userForm').submit(function(e) {
+    e.preventDefault();
+ 
+    var newMessageRef = messagesRef.push();
+    newMessageRef.set({
+        name: $('.fullname').val(),
+        email: $('.email').val(),
+        subject: $('.subject').val(),
+        message: $('.message').val()
+    });
+ 
+    $('.success-message').show();
+ 
+    $('#contactForm')[0].reset();
+});
 
-        <form action="" method="POST">
 
         <div class="form-group">
             <div class="form-row">
@@ -152,24 +169,6 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-  
-var messagesRef = firebase.database().ref('user');
-  
-  $('#userForm').submit(function(e) {
-    e.preventDefault();
- 
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-        name: $('.fullname').val(),
-        email: $('.email').val(),
-        subject: $('.subject').val(),
-        message: $('.message').val()
-    });
- 
-    $('.success-message').show();
- 
-    $('#contactForm')[0].reset();
-});
   
   
 </html>
