@@ -1,36 +1,3 @@
-<?php
-
-include "includes/db.php";
-
-session_start();
-
-if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
-
-  
-  $StudentNumber = $_POST['Istudent_num']; // this is the name of input field in your HTML FIELD
-  $firstname = $_POST['Ifirst_name']; // this is the name of input field in your HTML FIELD
-  $MiddleIntial = $_POST['IMiddle_int']; // this is the username of input field in your HTML FIELD
-  $lastname = $_POST['Ilast_name']; // this is the username of input field in your HTML FIELD
-  $pass_word = $_POST['Ipassword']; // this is the name of input field in your HTML FIELD
-  $Course = $_POST['ICourse']; // this is the password of input field in your HTML FIELD
-  $email = $_POST['Iemail']; // this is the password of input field in your HTML FIELD
-  $phone = $_POST['Iphone']; // this is the name of input field in your HTML FIELD
-
-
-  
-        $sql = "INSERT INTO `user`(`StudentNumber`, `pass_word`, `FirstName`, `MiddleIntial`, `LastName`, `Course`, `EmailAdress`, `PhoneNumber`) VALUES ( '$StudentNumber', '$pass_word', '$firstname', '$MiddleIntial', '$lastname', '$Course' $email', '$phone')";
-     ;
-        if (mysqli_query($db, $sql) && $pass_word) {
-            echo "Your Have Been Registered!";
-            header("location: index.php");
-        } else {
-            echo "Password Doesn't Match " ;
-        }
-
-        $db->close(); 
-}
-?>  
-
 <!DOCTYPE html>
 <html lang="en">
 
