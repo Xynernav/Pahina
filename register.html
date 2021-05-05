@@ -1,0 +1,164 @@
+<?php
+
+include "includes/db.php";
+
+session_start();
+
+if( $_SERVER["REQUEST_METHOD"] == "POST" ) {
+
+  
+  $StudentNumber = $_POST['Istudent_num']; // this is the name of input field in your HTML FIELD
+  $firstname = $_POST['Ifirst_name']; // this is the name of input field in your HTML FIELD
+  $MiddleIntial = $_POST['IMiddle_int']; // this is the username of input field in your HTML FIELD
+  $lastname = $_POST['Ilast_name']; // this is the username of input field in your HTML FIELD
+  $pass_word = $_POST['Ipassword']; // this is the name of input field in your HTML FIELD
+  $Course = $_POST['ICourse']; // this is the password of input field in your HTML FIELD
+  $email = $_POST['Iemail']; // this is the password of input field in your HTML FIELD
+  $phone = $_POST['Iphone']; // this is the name of input field in your HTML FIELD
+
+
+  
+        $sql = "INSERT INTO `user`(`StudentNumber`, `pass_word`, `FirstName`, `MiddleIntial`, `LastName`, `Course`, `EmailAdress`, `PhoneNumber`) VALUES ( '$StudentNumber', '$pass_word', '$firstname', '$MiddleIntial', '$lastname', '$Course' $email', '$phone')";
+     ;
+        if (mysqli_query($db, $sql) && $pass_word) {
+            echo "Your Have Been Registered!";
+            header("location: index.php");
+        } else {
+            echo "Password Doesn't Match " ;
+        }
+
+        $db->close(); 
+}
+?>  
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Sign Up - Pahina</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+<div class="container">
+        <center><img src="img/pahinalogo1.png" width="25%"></center>
+        <div class="card card-login mx-auto mt-5">
+
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Register an Account</div>
+      <div class="card-body">
+
+        <form action="" method="POST">
+
+        <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus" name="Ifirst_name">
+                  <label for="firstName">Student Number</label>
+                </div>
+              </div>
+                
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus" name="Ifirst_name">
+                  <label for="firstName">First name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required" name="Ilast_name">
+                  <label for="lastName">Middle Initial</label>
+                </div>
+              </div>
+            </div>
+          </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required" name="Ilast_name">
+                  <label for="lastName">Last name</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" name="Ipassword">
+                  <label for="inputPassword">Password</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
+                  <label for="confirmPassword">Confirm password</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-label-group">
+                  <input type="text" id="companyName" class="form-control" placeholder="Company name" required="required" autofocus="autofocus" name="Iname_company">
+                  <label for="companyName">Course</label>
+                </div>
+              </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" name="Iemail">
+              <label for="inputEmail">Email address</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="number" id="inputNumber" class="form-control no-spinners" placeholder="Phone Number" required="required" name="Iphone">
+              <label for="inputNumber">Phone Number</label>
+            </div>
+          </div>
+
+        
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </form>
+        <div class="text-center">
+       <a class="d-block small mt-3" href="index.php">Home</a>
+       
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
